@@ -18,6 +18,7 @@ app.command("/nyapkin-ping", async ({ ack, respond }) => {
   const latency = Date.now() - start;
 
   await respond({
+    response_type: "in_channel",
     text: `Pong!\nLatency: ${latency}ms`
   });
 });
