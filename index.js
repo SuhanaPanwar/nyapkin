@@ -29,6 +29,7 @@ app.command("/nyapkin-help", async ({ ack, respond }) => {
   await ack();
 
   await respond({
+    response_type: "in_channel",
     text: `Available Commands:
     
 /nyapkin-help - Here are the commands Nyapkin can use!! owo
@@ -46,6 +47,7 @@ app.command("/nyapkin-catfact", async ({ ack, respond }) => {
     const response = await axios.get("https://catfact.ninja/fact");
 
     await respond({
+      response_type: "in_channel",
       text: `Cat Fact:\n${response.data.fact}`
     });
 
@@ -53,7 +55,8 @@ app.command("/nyapkin-catfact", async ({ ack, respond }) => {
     console.error("Cat fact error:", err.message);
 
     await respond({
-      text: "Nyapkin couldn't find a cat fact! Try again later :("
+      response_type: "in_channel",
+      text: "Nyapkin couldn't find a cat fact! Try again later!! (>_<)"
     });
   }
 });
